@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph edgedefault="undirected">
+    <node id="importlib_metadata-8.5.0.dist" />
+    <node id="chardet-3.0.4.dist" />
+    <node id="Flask-2.1.0.dist" />
+    <node id="zipp-3.21.0.dist" />
+    <node id="idna-2.6.dist" />
+    <node id="itsdangerous-2.2.0.dist" />
+    <node id="click-8.1.8.dist" />
+    <node id="jinja2-3.1.5.dist" />
+    <node id="werkzeug-3.1.3.dist" />
+    <node id="urllib3-1.22.dist" />
+    <node id="requests-2.18.4.dist" />
+    <node id="certifi-2024.12.14.dist" />
+    <node id="MarkupSafe-3.0.2.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="chardet-3.0.4.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="Flask-2.1.0.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="zipp-3.21.0.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="idna-2.6.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="itsdangerous-2.2.0.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="click-8.1.8.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="jinja2-3.1.5.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="urllib3-1.22.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="requests-2.18.4.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="certifi-2024.12.14.dist" />
+    <edge source="importlib_metadata-8.5.0.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="chardet-3.0.4.dist" target="Flask-2.1.0.dist" />
+    <edge source="chardet-3.0.4.dist" target="zipp-3.21.0.dist" />
+    <edge source="chardet-3.0.4.dist" target="idna-2.6.dist" />
+    <edge source="chardet-3.0.4.dist" target="itsdangerous-2.2.0.dist" />
+    <edge source="chardet-3.0.4.dist" target="click-8.1.8.dist" />
+    <edge source="chardet-3.0.4.dist" target="jinja2-3.1.5.dist" />
+    <edge source="chardet-3.0.4.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="chardet-3.0.4.dist" target="urllib3-1.22.dist" />
+    <edge source="chardet-3.0.4.dist" target="requests-2.18.4.dist" />
+    <edge source="chardet-3.0.4.dist" target="certifi-2024.12.14.dist" />
+    <edge source="chardet-3.0.4.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="Flask-2.1.0.dist" target="zipp-3.21.0.dist" />
+    <edge source="Flask-2.1.0.dist" target="idna-2.6.dist" />
+    <edge source="Flask-2.1.0.dist" target="itsdangerous-2.2.0.dist" />
+    <edge source="Flask-2.1.0.dist" target="click-8.1.8.dist" />
+    <edge source="Flask-2.1.0.dist" target="jinja2-3.1.5.dist" />
+    <edge source="Flask-2.1.0.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="Flask-2.1.0.dist" target="urllib3-1.22.dist" />
+    <edge source="Flask-2.1.0.dist" target="requests-2.18.4.dist" />
+    <edge source="Flask-2.1.0.dist" target="certifi-2024.12.14.dist" />
+    <edge source="Flask-2.1.0.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="zipp-3.21.0.dist" target="idna-2.6.dist" />
+    <edge source="zipp-3.21.0.dist" target="itsdangerous-2.2.0.dist" />
+    <edge source="zipp-3.21.0.dist" target="click-8.1.8.dist" />
+    <edge source="zipp-3.21.0.dist" target="jinja2-3.1.5.dist" />
+    <edge source="zipp-3.21.0.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="zipp-3.21.0.dist" target="urllib3-1.22.dist" />
+    <edge source="zipp-3.21.0.dist" target="requests-2.18.4.dist" />
+    <edge source="zipp-3.21.0.dist" target="certifi-2024.12.14.dist" />
+    <edge source="zipp-3.21.0.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="idna-2.6.dist" target="itsdangerous-2.2.0.dist" />
+    <edge source="idna-2.6.dist" target="click-8.1.8.dist" />
+    <edge source="idna-2.6.dist" target="jinja2-3.1.5.dist" />
+    <edge source="idna-2.6.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="idna-2.6.dist" target="urllib3-1.22.dist" />
+    <edge source="idna-2.6.dist" target="requests-2.18.4.dist" />
+    <edge source="idna-2.6.dist" target="certifi-2024.12.14.dist" />
+    <edge source="idna-2.6.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="click-8.1.8.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="jinja2-3.1.5.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="urllib3-1.22.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="requests-2.18.4.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="certifi-2024.12.14.dist" />
+    <edge source="itsdangerous-2.2.0.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="click-8.1.8.dist" target="jinja2-3.1.5.dist" />
+    <edge source="click-8.1.8.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="click-8.1.8.dist" target="urllib3-1.22.dist" />
+    <edge source="click-8.1.8.dist" target="requests-2.18.4.dist" />
+    <edge source="click-8.1.8.dist" target="certifi-2024.12.14.dist" />
+    <edge source="click-8.1.8.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="jinja2-3.1.5.dist" target="werkzeug-3.1.3.dist" />
+    <edge source="jinja2-3.1.5.dist" target="urllib3-1.22.dist" />
+    <edge source="jinja2-3.1.5.dist" target="requests-2.18.4.dist" />
+    <edge source="jinja2-3.1.5.dist" target="certifi-2024.12.14.dist" />
+    <edge source="jinja2-3.1.5.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="werkzeug-3.1.3.dist" target="urllib3-1.22.dist" />
+    <edge source="werkzeug-3.1.3.dist" target="requests-2.18.4.dist" />
+    <edge source="werkzeug-3.1.3.dist" target="certifi-2024.12.14.dist" />
+    <edge source="werkzeug-3.1.3.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="urllib3-1.22.dist" target="requests-2.18.4.dist" />
+    <edge source="urllib3-1.22.dist" target="certifi-2024.12.14.dist" />
+    <edge source="urllib3-1.22.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="requests-2.18.4.dist" target="certifi-2024.12.14.dist" />
+    <edge source="requests-2.18.4.dist" target="MarkupSafe-3.0.2.dist" />
+    <edge source="certifi-2024.12.14.dist" target="MarkupSafe-3.0.2.dist" />
+  </graph>
+</graphml>

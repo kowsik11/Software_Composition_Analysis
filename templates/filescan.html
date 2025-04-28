@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="flex justify-center items-center bg-gray-100 py-12">
+    <!-- Main form container -->
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full space-y-6">
+
+        <!-- Form title -->
+        <h1 class="text-4xl font-semibold text-center text-gray-800">Upload File for Security Scan</h1>
+
+        <!-- File upload form -->
+        <form action="/scan" method="post" enctype="multipart/form-data" class="space-y-6" id="upload-form">
+
+            <!-- License Compliance Selection -->
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-gray-700">Select License Compliance</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- License Compliance options -->
+                    <label for="mit-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="MIT" id="mit-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>MIT</span>
+                    </label>
+                    <label for="apache-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="Apache-2.0" id="apache-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>Apache-2.0</span>
+                    </label>
+                    <label for="gpl-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="GPL-3.0" id="gpl-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>GPL-3.0</span>
+                    </label>
+                    <label for="bsd2-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="BSD-2-Clause" id="bsd2-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>BSD-2-Clause</span>
+                    </label>
+                    <label for="bsd3-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="BSD-3-Clause" id="bsd3-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>BSD-3-Clause</span>
+                    </label>
+                    <label for="lgpl-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="LGPL-3.0" id="lgpl-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>LGPL-3.0</span>
+                    </label>
+                    <label for="mpl-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="MPL-2.0" id="mpl-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>MPL-2.0</span>
+                    </label>
+                    <label for="artistic-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="Artistic-2.0" id="artistic-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>Artistic-2.0</span>
+                    </label>
+                    <label for="zlib-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="Zlib" id="zlib-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>Zlib</span>
+                    </label>
+                    <label for="isc-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="ISC" id="isc-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>ISC</span>
+                    </label>
+                    <label for="eupl-compliance" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="checkbox" name="license_compliance" value="EUPL-1.2" id="eupl-compliance"
+                            class="form-checkbox text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>EUPL-1.2</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Upload Type Selection -->
+            <div class="space-y-4">
+                <h2 class="text-xl font-semibold text-gray-700">Select Upload Type</h2>
+                <div class="flex items-center space-x-6">
+                    <label for="zip-upload" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="radio" name="upload_type" value="zip" id="zip-upload"
+                            class="form-radio text-blue-600 focus:ring-blue-500 mr-2">
+                        <span>Zip Upload</span>
+                    </label>
+                    <label for="txt-upload" class="flex items-center text-gray-700 cursor-pointer">
+                        <input type="radio" name="upload_type" value="txt" id="txt-upload"
+                            class="form-radio text-blue-600 focus:ring-blue-500 mr-2" checked>
+                        <span>.txt Upload</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- File input for upload -->
+            <div class="w-full">
+                <label for="file" class="block text-gray-700 font-semibold mb-2">Choose a file to upload:</label>
+                <input type="file" name="file" id="file" required accept=".txt"
+                    class="p-4 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                    required>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit"
+                class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 mt-4">Scan</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Ensure at least one checkbox is selected in the License Compliance section
+    document.getElementById('upload-form').addEventListener('submit', function (event) {
+        const selectedLicenses = document.querySelectorAll('input[name="license_compliance"]:checked');
+        if (selectedLicenses.length === 0) {
+            event.preventDefault(); // Prevent form submission
+            alert('Please select at least one License Compliance option.');
+        }
+    });
+
+    // Change file input accept type based on the selected upload type
+    document.getElementById('zip-upload').addEventListener('change', function () {
+        document.getElementById('file').accept = '.zip';
+    });
+
+    document.getElementById('txt-upload').addEventListener('change', function () {
+        document.getElementById('file').accept = '.txt';
+    });
+</script>
+
+{% endblock %}

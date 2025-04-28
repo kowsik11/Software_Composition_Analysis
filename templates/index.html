@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Main Container -->
+<div class="bg-gray-50 text-gray-800">
+    <!-- Hero Section -->
+    <section class="py-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+        <div class="container mx-auto text-center px-6 md:px-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-snug mb-6">
+                Software Composition Analysis (SCA)
+            </h1>
+            <p class="text-lg md:text-2xl font-light mb-8">
+                Comprehensive analysis of dependencies, vulnerabilities, and license compliance for modern software.
+            </p>
+            <a href="/scan"
+                class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg hover:bg-gray-100 transition-all">
+                Start Scanning
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20">
+        <div class="container mx-auto text-center px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white shadow-lg rounded-lg p-8 border border-gray-200 hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Dependency Scanning</h3>
+                    <p class="text-gray-600">Identify vulnerabilities and risks in project dependencies with ease.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-8 border border-gray-200 hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">SAST and DAST Integration</h3>
+                    <p class="text-gray-600">Seamlessly perform both static and dynamic application security testing.
+                    </p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-8 border border-gray-200 hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">License Compliance</h3>
+                    <p class="text-gray-600">Ensure compliance with licensing requirements by scanning components.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto text-center px-6 md:px-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white shadow-md rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div
+                        class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-6 mx-auto">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Upload Your Project</h3>
+                    <p class="text-gray-600">Upload your project files (.txt, .zip, etc.) for analysis.</p>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div
+                        class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-6 mx-auto">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Scan for Vulnerabilities</h3>
+                    <p class="text-gray-600">The tool scans dependencies and checks for potential issues.</p>
+                </div>
+                <div class="bg-white shadow-md rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div
+                        class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-6 mx-auto">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">View Detailed Report</h3>
+                    <p class="text-gray-600">Access a detailed report on vulnerabilities and compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="scan" class="py-24 bg-gradient-to-r from-green-400 to-blue-500 text-white">
+        <div class="container mx-auto text-center px-6 md:px-12">
+            <h2 class="text-4xl font-bold leading-snug mb-6">Ready to Start Scanning?</h2>
+            <p class="text-lg md:text-xl font-light mb-8">
+                Upload your project files now and get instant insights into your software composition.
+            </p>
+            <a href="/scan"
+                class="inline-block bg-white text-green-600 px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg hover:bg-gray-100 transition-all">
+                Upload Your Project
+            </a>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

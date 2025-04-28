@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto py-6 px-4">
+    <h1 class="text-3xl font-semibold mb-6 text-gray-800">Scan History</h1>
+
+    <div class="mb-6">
+        <label for="scantype" class="block text-sm font-medium text-gray-700">Filter by Scan Type</label>
+        <select id="scantype"
+            class="mt-1 block w-full p-2.5 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="">Select Scan Type</option>
+            <option value="dependency_scan">Dependency Scan</option>
+            <option value="sast_scan">SAST Scan</option>
+            <option value="dast_scan">DAST Scan</option>
+            <option value="dockerfile_scan">Docker Scan</option>
+            <option value="cipher_suite_scan">Cipher Suite Scan</option>
+        </select>
+    </div>
+
+    <div id="history" class="space-y-6">
+        <!-- History items will be dynamically rendered here -->
+    </div>
+</div>
+
+<script>
+    document.getElementById("scantype").addEventListener("change", function () {
+        const scantype = this.value;
+
+        fetch("/historyfilter", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ scantype }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                const historyDiv = document.getElementById("history");
+                historyDiv.innerHTML = "";
+
+                if (data.error) {
+                    historyDiv.innerHTML = `<p class="text-red-500">${data.error}</p>`;
+                    return;
+                }
+
+                data.forEach((item) => {
+                    const div = document.createElement("div");
+                    div.className = "bg-white shadow-lg rounded-lg p-6 border border-gray-200";
+
+                    if (item.scantype === 'dependency_scan') {
+                        div.innerHTML = `
+                            <p class="text-lg font-semibold text-gray-800"><strong>UUID:</strong> ${item.uuid || "N/A"}</p>
+                            <p class="text-sm text-gray-600"><strong>Timestamp:</strong> ${item.timestamp || "N/A"}</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Scan Type: Dependency Scan</p>
+                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                                <li><strong>Dependency Graph:</strong> <a href="/static/${item.dependency_graph}" target="_blank" class="text-indigo-600 hover:underline">${item.dependency_graph}</a></li>
+                                <li><strong>File:</strong> ${item.file}</li>
+                                <li><strong>License Compliance:</strong> ${item.license_compliance.join(', ')}</li>
+                                <li><strong>Severity Score:</strong> ${item.severity_score}</li>
+                            </ul>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Vulnerabilities:</p>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                                ${item.vulnerabilities.map(vuln => `<li><span class="font-semibold text-red-500">${vuln.severity}</span>: ${vuln.summary}</li>`).join('')}
+                            </ul>
+                        `;
+                    } else if (item.scantype === 'sast_scan') {
+                        div.innerHTML = `
+                            <p class="text-lg font-semibold text-gray-800"><strong>UUID:</strong> ${item.uuid || "N/A"}</p>
+                            <p class="text-sm text-gray-600"><strong>Timestamp:</strong> ${item.timestamp || "N/A"}</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Scan Type: SAST Scan</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Vulnerabilities:</p>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                                ${item.vulnerabilities.map(vuln => `
+                                    <li class="p-4 border border-gray-200 rounded-lg">
+                                        <p><strong>Type:</strong> ${vuln.type}</p>
+                                        <p><strong>Line:</strong> ${vuln.line}</p>
+                                        <p><strong>Code:</strong> <code class="bg-gray-100 text-sm p-1 rounded">${vuln.code}</code></p>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        `;
+                    } else if (item.scantype === 'dast_scan') {
+                        div.innerHTML = `
+                            <p class="text-lg font-semibold text-gray-800"><strong>UUID:</strong> ${item.uuid || "N/A"}</p>
+                            <p class="text-sm text-gray-600"><strong>Timestamp:</strong> ${item.timestamp || "N/A"}</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Scan Type: DAST Scan</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Vulnerabilities:</p>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                                ${item.vulnerabilities.map(vuln => `
+                                    <li class="p-4 border border-gray-200 rounded-lg">
+                                        <p><strong>Type:</strong> ${vuln.type}</p>
+                                        <p><strong>URL:</strong> <a href="${vuln.url}" target="_blank" class="text-indigo-600 hover:underline">${vuln.url}</a></p>
+                                        <p><strong>Payload:</strong> <code class="bg-gray-100 text-sm p-1 rounded">${vuln.payload}</code></p>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        `;
+                    } else if (item.scantype === 'dockerfile_scan') {
+                        div.innerHTML = `
+                            <p class="text-lg font-semibold text-gray-800"><strong>UUID:</strong> ${item.uuid || "N/A"}</p>
+                            <p class="text-sm text-gray-600"><strong>Timestamp:</strong> ${item.timestamp || "N/A"}</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Scan Type: Dockerfile Scan</p>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                                <li><strong>File:</strong> ${item.file}</li>
+                            </ul>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Issues Found:</p>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-700">
+                                ${item.issues.map(([line, msg]) => `
+                                    <li class="p-4 border border-gray-200 rounded-lg">
+                                        <p><strong>Line ${line}:</strong> ${msg}</p>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        `;
+                    } else if (item.scantype === 'cipher_suite_scan') {
+                        div.innerHTML = `
+                            <p class="text-lg font-semibold text-gray-800"><strong>UUID:</strong> ${item.uuid || "N/A"}</p>
+                            <p class="text-sm text-gray-600"><strong>Timestamp:</strong> ${item.timestamp || "N/A"}</p>
+                            <p class="mt-4 text-md font-semibold text-gray-800">Scan Type: Cipher Suite Scan</p>
+                            <p class="text-sm text-gray-700"><strong>Host:</strong> ${item.host}</p>
+                            <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                                ${item.results.map(result => `
+                                    <li class="p-2 border border-gray-200 rounded">${result}</li>
+                                `).join('')}
+                            </ul>
+                        `;
+                    }
+
+
+                    historyDiv.appendChild(div);
+                });
+            });
+    });
+</script>
+{% endblock %}

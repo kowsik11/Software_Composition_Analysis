@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Composition Analysis</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold">Software Composition Analysis</a>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="/scan" class="hover:text-gray-200">Dependency Scanner</a></li>
+                    <li><a href="/sast-dast" class="hover:text-gray-200">SAST/DAST Scanner</a></li>
+                    <li><a href="/cipher-suite-form" class="hover:text-gray-200">Cipher Suite Analysis</a></li>
+                    <li><a href="/container-scan" class="hover:text-gray-200">Docker Scan</a></li>
+                    <li><a href="/history" class="hover:text-gray-200">Previous Scans</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Logo Bar -->
+    <div class="bg-white shadow-sm py-2">
+        <div class="container mx-auto px-4 flex items-center">
+            <img src="{{ url_for('static', filename='images/Amrita Logo.png') }}" alt="Amrita Logo" class="h-20">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        {% block content %}
+        <p class="text-center text-gray-600">Welcome to my Flask app!</p>
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">&copy; {{ year }} My Flask App. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

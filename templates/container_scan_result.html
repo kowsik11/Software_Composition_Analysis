@@ -1,0 +1,18 @@
+<!-- container_scan_result.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-white p-8 shadow-lg rounded-lg">
+    <h2 class="text-2xl font-semibold mb-6">Dockerfile Scan Results - {{ filename }}</h2>
+
+    {% if issues %}
+    <ul class="list-disc pl-6 text-gray-800 space-y-2">
+        {% for lineno, issue in issues %}
+        <li><strong>Line {{ lineno }}:</strong> {{ issue }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-lg text-green-600">✅ No major issues found in the Dockerfile. Looks good!</p>
+    {% endif %}
+</div>
+{% endblock %}
